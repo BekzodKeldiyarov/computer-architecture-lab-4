@@ -1,12 +1,17 @@
+#include <stdio.h>
+#include "LPC17xx.H"
+#include "led/led.h"
+#include "button_EXINT/button.h"
 
-extern int ASM_funct(int, int, int, int,  int, int);
+extern unsigned char led_value;
 
-int main(void){
-	int i=1, j=2, k=3, l=4, m=5, n=6;
-	
-	
-	volatile int r = ASM_funct(i, j, k, l, m, n);
-	
-	while(r);
+int main(void)
+{
+	SystemInt();
+	LED_init();
+	BUTTON_init();
 
+	while (1)
+	{
+	}
 }
